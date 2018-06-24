@@ -4,9 +4,10 @@ import {$, $$, render, safe} from './util.js'
 // =
 
 var isHighlighterScriptAdded = false
-export async function setup (containerEl, {url, folder, file, colorMode} = {}) {
+export async function setup (containerEl, {url, folder, file, title, colorMode} = {}) {
   url = url || window.location.toString()
   var archive = new DatArchive(url)
+  title = title || (await archive.getInfo()).title || 'Source explorer'
 
   if (!isHighlighterScriptAdded) {
     let script = document.createElement('script')
@@ -16,11 +17,11 @@ export async function setup (containerEl, {url, folder, file, colorMode} = {}) {
   }
   await isHighlighterScriptAdded
 
-  return new SourceExplorer(containerEl, archive, {folder, file, colorMode})
+  return new SourceExplorer(containerEl, archive, {folder, file, colorMode, title})
 }
 
 class SourceExplorer {
-  constructor (containerEl, archive, {folder, file, colorMode}) {
+  constructor (containerEl, archive, {folder, file, title, colorMode}) {
     this.containerEl = containerEl
     this.archive = archive
 
@@ -35,7 +36,7 @@ class SourceExplorer {
     this.editorEl = document.createElement('div')
     this.editorEl.classList.add('source-explorer-widget', colorMode === 'dark' ? 'dark' : 'light')
     this.editorEl.innerHTML = `
-      <div class="header">source explorer <span class="current-file"></span></div>
+      <div class="header">${safe(title)} <span class="current-file"></span></div>
       <div class="main">
         <div class="files-list"></div>
         <div class="current-file-content hljs"></div>

@@ -3,13 +3,10 @@
 
 .source-explorer-widget {
   font-family: sans-serif;
-  border: 1px solid #bbb;
 }
 
 .source-explorer-widget .header {
-  background: #eee;
   padding: 10px;
-  border-bottom: 1px solid #ddd;
 }
 
 .source-explorer-widget .main {
@@ -18,10 +15,8 @@
 }
 
 .source-explorer-widget .files-list {
-  padding: 10px;
-  background: #eee;
+  padding: 10px 20px 10px 10px;
   overflow: auto;
-  border-right: 1px solid #ddd;
 }
 
 .source-explorer-widget .current-file {
@@ -48,8 +43,9 @@
   flex: 1;
   overflow: auto;
   white-space: pre;
-  padding: 10px;
+  padding: 12px;
   font-size: 13px;
   font-family: "Lucida Sans Typewriter", "Lucida Console", monaco, "Bitstream Vera Sans Mono", monospace;
-}
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
