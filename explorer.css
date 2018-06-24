@@ -1,3 +1,6 @@
+@import "./vendor/highlight/light-syntax.css";
+@import "./vendor/highlight/dark-syntax.css";
+
 .source-explorer-widget {
   font-family: sans-serif;
   border: 1px solid #bbb;
@@ -41,14 +44,12 @@
   text-decoration: underline;
 }
 
-.source-explorer-widget textarea {
+.source-explorer-widget .current-file-content {
   flex: 1;
-  border: 0;
-  font-size: 16px;
-  font-family: monospace;
-  padding: 10px;
-  outline: 0;
-  color: #555;
   overflow: auto;
   white-space: pre;
+  padding: 10px;
+  font-size: 13px;
+  font-family: "Lucida Sans Typewriter", "Lucida Console", monaco, "Bitstream Vera Sans Mono", monospace;
+}
 }

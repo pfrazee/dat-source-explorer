@@ -3,15 +3,24 @@ import {$, $$, render, safe} from './util.js'
 // exported api
 // =
 
-export async function setup (containerEl, {url, folder, file} = {}) {
+var isHighlighterScriptAdded = false
+export async function setup (containerEl, {url, folder, file, colorMode} = {}) {
   url = url || window.location.toString()
   var archive = new DatArchive(url)
 
-  return new SourceExplorer(containerEl, archive, {folder, file})
+  if (!isHighlighterScriptAdded) {
+    let script = document.createElement('script')
+    script.src = '/vendor/highlight/highlight.pack.js'
+    document.body.appendChild(script)
+    isHighlighterScriptAdded = new Promise(resolve => script.addEventListener('load', resolve))
+  }
+  await isHighlighterScriptAdded
+
+  return new SourceExplorer(containerEl, archive, {folder, file, colorMode})
 }
 
 class SourceExplorer {
-  constructor (containerEl, archive, {folder, file}) {
+  constructor (containerEl, archive, {folder, file, colorMode}) {
     this.containerEl = containerEl
     this.archive = archive
 
@@ -24,12 +33,12 @@ class SourceExplorer {
 
     // setup dom
     this.editorEl = document.createElement('div')
-    this.editorEl.classList.add('source-explorer-widget')
+    this.editorEl.classList.add('source-explorer-widget', colorMode === 'dark' ? 'dark' : 'light')
     this.editorEl.innerHTML = `
       <div class="header">source explorer <span class="current-file"></span></div>
       <div class="main">
         <div class="files-list"></div>
-        <textarea readonly></textarea>
+        <div class="current-file-content hljs"></div>
       </div>
     `
     this.containerEl.append(this.editorEl)
@@ -75,7 +84,12 @@ class SourceExplorer {
 
   async showFile (file) {
     this.currentFile = file
-    $(this.editorEl, 'textarea').value = await this.archive.readFile(this.currentFolder + file, 'utf8')
+    
+    var raw = await this.archive.readFile(this.currentFolder + file, 'utf8')
+    var highlighted = hljs.highlightAuto(raw, file.split('.').slice(-1))
+    console.log(file.split('.').slice(-1), highlighted)
+
+    $(this.editorEl, '.current-file-content').innerHTML = highlighted.value
     $(this.editorEl, '.current-file').textContent = this.currentFolder + file
   }
 

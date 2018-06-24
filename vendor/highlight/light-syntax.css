@@ -1,0 +1,71 @@
+/*
+
+Visual Studio-like style based on original C# coloring by Jason Diamond <jason@diamond.name>
+
+*/
+.light .hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  background: white;
+  color: black;
+}
+
+.light .hljs-comment,
+.light .hljs-quote,
+.light .hljs-variable {
+  color: #999;
+}
+
+.light .hljs-keyword,
+.light .hljs-selector-tag,
+.light .hljs-built_in,
+.light .hljs-name,
+.light .hljs-tag {
+  color: #00f;
+}
+
+.light .hljs-title {
+  font-weight: bold;
+}
+
+.light .hljs-string,
+.light .hljs-section,
+.light .hljs-attribute,
+.light .hljs-literal,
+.light .hljs-template-tag,
+.light .hljs-template-variable,
+.light .hljs-type,
+.light .hljs-addition {
+  color: #008000;
+}
+
+.light .hljs-deletion,
+.light .hljs-selector-attr,
+.light .hljs-selector-pseudo,
+.light .hljs-meta {
+  color: #2b91af;
+}
+
+.light .hljs-doctag {
+  color: #808080;
+}
+
+.light .hljs-attr {
+  color: #FF9800;
+}
+
+.light .hljs-symbol,
+.light .hljs-bullet,
+.light .hljs-link {
+  color: #00b0e8;
+}
+
+
+.light .hljs-emphasis {
+  font-style: italic;
+}
+
+.light .hljs-strong {
+  font-weight: bold;
+}
