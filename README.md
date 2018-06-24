@@ -9,7 +9,7 @@ A helpful widget for viewing the source of a dat site.
 Import the CSS and Javascript into your site. In your HTML:
 
 ```css
-&lt;link rel="stylesheet" href="dat://source-explorer.hashbase.io/explorer.css"&gt;
+<link rel="stylesheet" href="dat://source-explorer.hashbase.io/explorer.css">
 ```
 
 In your Javascript:
