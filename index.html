@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" href="/docs.css">
+    <link rel="stylesheet" href="/explorer.css">
+  </head>
+  <body>
+    <main>
+      <h1>Source Explorer</h1>
+      <p>A helpful widget for viewing the source of a dat site.</p>
+      <p>
+        <a href="dat://source-explorer.hashbase.io">dat site</a>
+        |
+        <a href="https://github.com/pfrazee/dat-source-explorer">git repo</a>
+      </p>
+      <div id="example"></div>
+      <h2>Usage</h2>
+      <p>Import the CSS and Javascript into your site. In your HTML:</p>
+      <pre>&lt;link rel="stylesheet" href="dat://source-explorer.hashbase.io/explorer.css"&gt;</pre>
+      <p>In your Javascript:</p>
+      <pre>import * as explorer from 'dat://source-explorer.hashbase.io/explorer.js'
+
+explorer.setup(document.body, {
+  url: window.location.toString(), // defaults to window.location
+  folder: '/',                     // defaults to '/'
+  file: 'index.html'               // defaults to 'index.html'
+})</pre>
+      <footer>
+        &copy; 2018 <a href="https://bluelinklabs.com" title="Blue Link Labs">Blue Link Labs</a> (<a href="/LICENSE" title="Open source license">MIT License</a>).
+      </footer>
+    </main>
+    <script type="module" src="/index.js"></script>
+  </body>
+</html>

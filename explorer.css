@@ -1,0 +1,54 @@
+.source-explorer-widget {
+  font-family: sans-serif;
+  border: 1px solid #bbb;
+}
+
+.source-explorer-widget .header {
+  background: #eee;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.source-explorer-widget .main {
+  display: flex;
+  height: 50vh;
+}
+
+.source-explorer-widget .files-list {
+  padding: 10px;
+  background: #eee;
+  overflow: auto;
+  border-right: 1px solid #ddd;
+}
+
+.source-explorer-widget .current-file {
+  font-family: monospace;
+  color: gray;
+}
+
+.source-explorer-widget .current-folder {
+  font-family: monospace;
+  font-weight: bold;
+}
+
+.source-explorer-widget .files-list-item {
+  color: blue;
+  cursor: pointer;
+  padding: 2px;
+}
+
+.source-explorer-widget .files-list-item:hover {
+  text-decoration: underline;
+}
+
+.source-explorer-widget textarea {
+  flex: 1;
+  border: 0;
+  font-size: 16px;
+  font-family: monospace;
+  padding: 10px;
+  outline: 0;
+  color: #555;
+  overflow: auto;
+  white-space: pre;
+}

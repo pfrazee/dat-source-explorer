@@ -1,0 +1,10 @@
+main {
+  font-family: sans-serif;
+  max-width: 840px;
+  margin: 0 auto;
+}
+
+pre {
+  padding: 1em;
+  background: #eee;
+}
